@@ -1,0 +1,7 @@
+https://www.geeksforgeeks.org/java-equals-compareto-equalsignorecase-and-compare/
+
+
+equals will take any Object as a parameter, but compareTo will only take Strings.
+equals only tells you whether they're equal or not, but compareTo gives information on how the Strings compare lexicographically.
+
+compareTo() has the additional drawback that it only works on objects that implement the Comparable interface.

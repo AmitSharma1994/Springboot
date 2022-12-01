@@ -1,0 +1,164 @@
+Comprable 
+-----------
+this is used to sort or order the objects in collection and arrays
+compareTo method need to implemented
+
+collections.sort  or arrays.sort method used.
+
+only passed the list in sort method.
+
+it has only one compareTo method.
+
+
+
+
+
+
+Example:-
+--------------
+package com.array;
+
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Employee implements Comparable<Employee> {
+    
+	int id;
+	String name ;
+	double salary;
+	
+	public Employee(int i, String n, double d) {
+		this.id=i;
+		this.name=n;
+		this.salary=d;
+	}
+	
+	@Override
+	public int compareTo(Employee o) {
+	  
+		int agec=this.name.compareTo(o.name);
+		
+		return agec;
+	}
+	
+	@Override
+	public String toString() {
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+	}
+
+
+	}
+
+
+
+class EmployeeMain{
+	public static void main(String[] args) {
+		
+		
+	     ArrayList<Employee> list=new ArrayList();
+	     
+	     Employee e1=new Employee(3,"sam",5000.00);
+	     Employee e2=new Employee(6,"amy",15000.00);
+	     Employee e3=new Employee(9,"brad",25000.00);
+	     Employee e4=new Employee(7,"dogw",30000.00);
+	   
+	     
+	     
+	     list.add(e1);
+	     list.add(e2);
+	     list.add(e3);
+	     list.add(e4);
+	     System.out.println("Before sorting");
+	     for(Employee ep:list) {
+	    	 System.out.println(ep);
+	     }
+	     
+	     Collections.sort(list);
+	     
+	     System.out.println("After  sorting");
+	     
+	     for(Employee ep:list) {
+	    	 System.out.println(ep);
+	     }
+	    
+		}
+}
+
+Comprator:-
+----------
+
+we have create seprat class for sorting Property
+
+overide compare method inside we are using ComprareTo method 
+
+we are passing in Collection.sort method as two parameter one is list and another is object.
+
+we can used multiple compare method.
+
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+ 
+class Employee implements Comparator<Employee>{
+    String name;
+    String id;
+   
+    public Employee() {}
+   
+    public Employee(String name, String id) {
+        this.name = name;
+        this.id = id;
+    }
+   
+    @Override
+    public int compare(Employee obj1, Employee obj2) {
+       //sort Employee on basis of name(ascending order)
+       return obj1.name.compareTo(obj2.name);
+    }
+   
+    @Override
+    public String toString() {
+        return "Employee{" + "name=" + name + ", id=" + id  + '}';
+    }
+   
+   
+}
+ 
+ 
+/**
+ * @author AnkitMittal
+ * Copyright (c), AnkitMittal JavaMadeSoEasy.com
+ * Main class
+ */
+public class ComparatorUsageExample {
+    public static void main(String[] args) {
+ 
+        Employee emp1=new Employee("sam","4");
+        Employee emp2=new Employee("amy","2");
+        Employee emp3=new Employee("brad","1");
+
+        ArrayList<Employee> list=new ArrayList<Employee>();
+        list.add(emp1);
+        list.add(emp2);
+        list.add(emp3);
+      
+        System.out.println("list Before sorting : \n"+list);
+ 
+        Collections.sort(list,new Employee());
+ 
+        System.out.println("\nlist after sorting on basis of name(ascending order) : \n"+list);
+       
+    }
+}
+ 
+ 
+/*OUTPUT
+ 
+list Before sorting :
+[Employee{name=sam, id=4}, Employee{name=amy, id=2}, Employee{name=brad, id=1}]
+ 
+list after sorting on basis of name(ascending order) :
+[Employee{name=amy, id=2}, Employee{name=brad, id=1}, Employee{name=sam, id=4}]
+ 
+*/

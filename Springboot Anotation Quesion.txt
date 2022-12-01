@@ -1,0 +1,165 @@
+
+List of Some Anotation in SpringBootAplication
+
+https://springframework.guru/spring-framework-annotations/	
+
+1	@SpringbootApplication
+		@ComponentScan (basepackage="com.wipro")
+		@EnableAutoConfiguration(exclude={classname,classname,})
+		@Configuration   Indicates that a class declares one or more @Bean methods and may be processed by the Spring container
+                 		to generate bean definitions and service requests for those beans at runtime
+2	@Bean				Mehtod Level
+3	@component
+		@serivce
+		@Controller/@RestController
+		@repository
+7	@Transactional
+8	@Required
+9	@Autowired
+10	@Qualifier
+11	@Primary
+12	@Inject
+13	@RequestMapping
+		@PostMapping
+		@GetMapping
+		@PutMapping
+		@DeleteMapping
+17	@Requestbody
+18	@Responsebody
+19	@RequestEntity
+18	@ResponseEntity
+19  @ModelAttribute
+20  @Enablejparepository
+21  @EntityScan
+22  @Value
+
+
+
+What is the difference between @RequestParam and @ModelAttribute?
+	@RequestParam is best for reading a small number of params. @ModelAttribute is used when you have a form with a large number of fields
+	
+What is diffrence between @ResponseEntity and @ResponseBody??
+
+	ResponseEntity represents an HTTP response, including headers, body, and status. While @ResponseBody puts the return value into 
+	the body of the response, ResponseEntity also allows us to add custom headers and status code.
+
+what is diffrence between @RequestParam and @Pathvariable??
+
+	That's all about the difference between @PathVariable and @RequestParam in Spring MVC. Even though both are used to extract data from URL,
+ 	@RequestParam is used to retrieve query parameters, anything after? in the URL, while @PathVariable is used to retrieve values from URI itself.
+
+what is parent dependency??
+it is the root dependency by which all the other dependency will be fetch thier version.
+
+How to use or override other server rather than tomcat??
+
+			<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-tomcat</artifactId>
+				</exclusion>
+			</exclusions>
+			</dependency>
+			<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jetty</artifactId>
+			</dependency>
+			
+	when we used the packaging as war then it by default add resource/template folder and static folder and starter web dependency.
+			
+How to disable  some of specific class  of from classpath.
+
+we  use the exclude attribute of @EnableAutoConfiguration anotation. @EnableAutoConfiguration(exclude={classname,classname,classname}).
+
+
+ What is the use of Profiles in spring boot?
+
+	while deal with 
+	
+	-------------------------------
+	Actuator in Spring Boot
+    -------------------------------
+	
+   What is Spring Actuator? and how to useit What are its advantages?
+   
+   An actuator is an additional feature of Spring boot that helps you to monitor and manage your application when you push it to production.
+   by the help of Acutuator we can exposed various endpoints.
+   These actuators include auditing, health, CPU usage, HTTP hits, and metric gathering, and many more that are automatically applied to your application.
+   
+   What are the actuator-provided endpoints used for monitoring the Spring boot application?
+
+		Health
+		Info from 2.6 onword we need to enabled the managment.info.env.enabled=true then we are able to add info.app.name=firstApp then it will 
+			 show in localhost:8090/acutuater/info
+		
+		Beans
+		Mappings
+		metrics
+		Configprops
+		Httptrace
+		Heapdump
+		Threaddump
+		Shutdown
+		
+		
+		DevTools
+		
+		
+		
+     --------------------------------------------
+	 How to used thyleaf and jsp with spring boot
+	 ---------------------------------------------
+		
+		view resolver will convet the logical view name into physical view name which is persent in src/resource/templates and it will be rendered.
+		we will add the properties 
+		
+		spring boot doesnot recommend the jsp for view.
+		for jsp we can use internalviewresolver for resolving logicaly view name to physucally view name.
+		we can add the prifix and suffix in application.properties 
+			spring.mvc.web.
+		
+		if we have class based and application.properties configuration then class based configuration will be prefered.
+		
+		
+		
+		-------------------
+		Spring data jpa
+		------------------
+		
+		it is abstraction layer on orm/jpa and this is provide various repostity interface like jparepository and curdreposityroy.
+		
+		
+		
+		for Embeded database connectivity we need to added two dependency one is spring-boot-starter-data-jpa and another is H2 data bases dependency.
+		
+		by default jdbc we need to fetch from console log and then we can and by default password is sa.
+		
+	  ------------------------------------
+		How to run on external server  
+   	--------------------------------------
+		
+		we need to select packaging as war and provided tomcat server dependency in pom.xml and added thier scope as provided then we will able to see the 
+		
+		run as on Run on server in . and  we have extra serverlet intilier class will be thier which extends springbootserverletinilizer and this class 
+		
+		override the configure method which take springapplicationbuilder.class and 
+
+
+		
+		
+		how to change the war name 
+		
+		we can add the finalName tag in build tag with ${project.artifactId}
+		
+		
+		
+		
+		final name
+		
+		QA-274
+		
+------------------------------------------------------
+

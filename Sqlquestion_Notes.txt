@@ -1,0 +1,65 @@
+             sql Concept
+		  ---------------------
+	DDL
+Create,Alter,Drop,Trancate
+	DML
+Insert,Delete,Update
+	DCL
+grant,Revoke
+	TCL
+RollBack,Commit
+
+	DQL
+SELECT FROM where  order by groupby having
+
+in ,between
+	
+
+
+
+           Type of Joining
+		---------------------
+		   
+Left Joining
+Right Joining
+inner joining
+
+		Some of agreegate function
+		-----------------------------
+		
+Min 
+max
+count
+
+
+			Database Object
+		----------------------
+Function
+Procedure
+table 
+view
+trigger
+indexing
+synonys
+
+
+		Theoritical question
+		---------------------
+diff between function and procedure
+diff between delete and truncate
+how to index creation
+sql tuning
+
+
+            Sql Question
+-----------------------------------
+		
+
+1.How to find the max salary in sql
+
+SELECT name, MAX(salary) AS salary 
+FROM employee 
+WHERE salary <> (SELECT MAX(salary) 
+FROM employee);
+
+2.how to find the second max salary

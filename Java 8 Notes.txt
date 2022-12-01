@@ -1,0 +1,141 @@
+Main Feature of Java 8
+=========================
+		1.forEach () Method in iterable Interface.
+		2.Default Methods and Static Methods Interface which which improve the implementation of interface.
+		3.Functional Interfaces, Lambda Expressions and Method Reference.
+		4.Optinal Class
+		4.Java Stream API for Bulk Data Operations on Collections.
+		5.Java Time API
+		6.Collection API Improvements
+		7.Concurrency API Improvements
+		8.Java IO Improvements
+
+
+
+3.Funcional Interface
+======================
+		An Interface which have only one abstract method and which have may be many defalt and static method 
+		is called Funcional Interface.we are using @FunctionlInterface Anotation for define fI.which is give the error if we added more
+		than one abstract method.
+		One FI is not extends another FI.implementation of abstract method provided by lamda expression or anonymus class.
+
+
+
+  default method();
+  
+  
+  
+  
+  
+  
+
+
+	Name of some Functional Interace:	
+	---------------------------------					
+
+		Function
+		Predicate
+		suplier
+		consumer
+		uniory opertor
+		binary ooperaor
+
+
+	function and predicate diffrence
+	---------------------------------
+
+	Map take function as arugument and Filter take Predicate as arugument.
+
+
+		Lamda Expressions
+	-----------------------
+	lamda exprssion is anonymus function which have no return type and no name.
+	lamda exprssion is used to provide the implementation of functional interface.
+	Java lambda expression is consisted of three components.
+
+		1) Argument-list: It can be empty or non-empty as well.
+
+		2) Arrow-token: It is used to link arguments-list and body of expression.
+
+		3) Body: It contains expressions and statements for lambda expression.
+		
+		(argument-list) -> {body}  
+
+			() -> {  //No parameter lamda exprssion.
+			//Body of no parameter lambda  
+			}  
+			
+			(p1)->{//one parameter lamda expression.
+			//body of one parameter lamda
+			}
+			(p1,p2)->{ //two parameter lamda exprssion
+			//body of two parameter
+			}
+
+Inner class and lmda exprssion 
+	Method referance
+  -----------------------
+
+1.Method referance is replacement of lamda Expresion it is used to refer the method of functional Interface  to an existing methods.Mainly it is used for code
+  Reuseability.
+2.Abstract method of functional interface can be mapped to spceific existing method using double colun operator,this is called method referace.
+3.hence method referce is alternating to lambda expresions.
+4.When ever we have existing implementation of  Abstarct method of  our functinal interface then we can go for method refernce, otherwise we will go for
+ lamda expresion.we can call user defined class method or pre defined class method. and we can also called constructor.
+
+
+list.stream().filleter(e->e.getager>40&& e.getsary>40000).collet
+
+
+list.stream().map(e)
+
+
+
+
+	4.Optinal Class
+  ======================
+  
+  
+  
+  5.Java Stream API for Bulk Data Operations on Collections
+  ===========================================================
+  
+  Terminal Operations
+  --------------------
+
+				anyMatch()
+				allMatch()
+				noneMatch()
+				collect()
+				count()
+				findAny()
+				findFirst()
+				forEach()
+				min()
+				max()
+				reduce()
+				toArray()
+				
+				
+	Non-Terminal Operations intermediate stream operation :-This is return another Stream as output.
+  ---------------------------
+				filter()
+				map()
+				flatMap()
+				distinct()
+				limit()
+				peek()
+
+
+100  emloyee
+
+map.
+
+
+
+
+				
+				
+Q1.	Map and Flat map diffrence
+	Map() map method produce one output value to one input value and function which pass to flatmap which is return any number of value as output.
+	one to one mapping occurs in map and one to many 

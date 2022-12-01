@@ -1,0 +1,111 @@
+Spring Conroller method used two class
+1.ModelAndView which is return as thier instance ModelAndView after setting all the value in object.
+2.ModelMap which return as String after setting all the value in object.
+3. Model which is used with @modelAttribute
+
+		Model vs ModelAndView
+@RequestMapping(value = "/", method = RequestMethod.GET)
+public String showLoginPage(ModelMap model) {
+model.put("name", "in28Minutes");
+return "welcome";
+}
+
+@RequestMapping(value = "/", method = RequestMethod.GET)
+public ModelAndView showLoginPage() {
+ModelAndView mv = new ModelAndView();
+mv.addObject("name", "in28Minutes");
+mv.setViewName("welcome");
+}
+
+@ModelAttribute
+public void addAttributes(Model model) {
+model.addAttribute("options",
+Arrays.asList(
+"Option 1","Option 2","Option 3" ));
+}
+
+
+
+---------------------------------
+
+
+------------------------------------
+
+
+Dependecy Injection and IOC Container
+======================================
+Dependecy injection is fundamental aspect of Spring framework through which we inject the object into onother objects. 
+
+Depenecy injection is simply provide the loose coupling of components and move the responsibility of components on IOC container.
+
+
+IOC container is used to find the bean ,wire the dependency and manage the lifecycle of beans.
+
+The Spring container is responsible for instantiating, configuring and assembling objects known as beans, as well as managing their life cycles.
+
+BeanFactory and ApplicationContext interface is example of IOC containner.
+
+
+Lifecycle of Bean
+-------------------
+
+
+
+
+Scope of Bean
+---------------
+	1.Singleton
+	2.prototype
+	3.request
+	4.session
+	5.global
+
+
+
+Autowiring and Bean Configutaion File
+---------------------------------------
+
+bean.xml
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+    <context:annotation-config />
+ 
+    <bean id="employee" class="com.howtodoinjava.autowire.constructor.EmployeeBean" autowire="constructor">
+        <property name="fullName" value="Lokesh Gupta"/>
+    </bean>
+    <!--Will be available for autowiring-->
+    <bean id="humanResource" class="com.howtodoinjava.autowire.constructor.DepartmentBean" >
+        <property name="name" value="Human Resource" />
+    </bean>
+ 
+    <!--Will not participate in autowiring-->
+     <bean id="finance"      class="com.howtodoinjava.autowire.constructor.DepartmentBean" autowire-candidate="false">
+        <property name="name" value="Finance" />
+    </bean>
+</beans>
+
+we have seprate configuration file for defining all the bean which is used in application inwhich we can add the attribute name autowire type 
+and accordingly they will select the type of autowireing and inject the dependency.
+
+There are four type of Autowiring mode.
+    No:-This is default setting of beans.
+	ByName:This option enables the dependency injection based on bean names. When autowiring a property in a bean, the property name is used for 
+			searching a matching bean definition in the configuration file.
+			If such a bean is found, it is injected into the property. If no such bean is found, an error is raised
+	ByType:-This option enables the dependency injection based on bean types. When autowiring a property in bean, the property’s class 
+			type is used for searching a matching bean definition in the configuration file.
+			If such a bean is found, it is injected into the property. If no such bean is found, an error is raised.
+	construcor:-Autowiring by constructor is similar to byType, but applies to constructor arguments. In autowire enabled bean, 
+	it will look for class type of constructor arguments, and then do a autowire bytype on all constructor arguments. Please note that
+	if there isn’t exactly one bean of the constructor argument type in the container, a fatal error is raised.
+	
+	
+	
+Enable annotation config
+-----------------------------
+applicationContext.xml
+<context:annotation-config />
+Same can be achieved using AutowiredAnnotationBeanPostProcessor bean definition in configuration file.
+
+<bean class ="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"/>

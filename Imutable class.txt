@@ -1,0 +1,49 @@
+
+https://medium.com/javarevisited/confused-with-immutable-class-in-java-why-string-is-immutable-get-it-clear-7edbee856c9#id_token=eyJhbGciOiJSUzI1NiIsImtpZCI6IjQ4NmYxNjQ4MjAwNWEyY2RhZjI2ZDkyMTQwMThkMDI5Y2E0NmZiNTYiLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJodHRwczovL2FjY291bnRzLmdvb2dsZS5jb20iLCJuYmYiOjE2NTMwMTI1MTksImF1ZCI6IjIxNjI5NjAzNTgzNC1rMWs2cWUwNjBzMnRwMmEyamFtNGxqZGNtczAwc3R0Zy5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsInN1YiI6IjEwNDQxOTk3NTUxODQwNjQ4MzczNiIsImVtYWlsIjoia3NoYXJtYS5hbWl0MTk5NEBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXpwIjoiMjE2Mjk2MDM1ODM0LWsxazZxZTA2MHMydHAyYTJqYW00bGpkY21zMDBzdHRnLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwibmFtZSI6IkFtaXQgU2hhcm1hIiwicGljdHVyZSI6Imh0dHBzOi8vbGgzLmdvb2dsZXVzZXJjb250ZW50LmNvbS9hLS9BT2gxNEdpUGl5bWR0X25uNTFaWm1rVl9KdjNEYVp6WWtXSWJEYWk5LXNXd0hnPXM5Ni1jIiwiZ2l2ZW5fbmFtZSI6IkFtaXQiLCJmYW1pbHlfbmFtZSI6IlNoYXJtYSIsImlhdCI6MTY1MzAxMjgxOSwiZXhwIjoxNjUzMDE2NDE5LCJqdGkiOiJhNTc2NTg5NWI2Yzg4ZDNjZTcyNzkyNjZhMDI0ZGNkMDZiMzUwM2UwIn0.WiphTQ9SN9NaIjIjuOV0Mn-kkANaglHh7G5rVa_-kS1vCCR65liA3bWTaX5sU-lPnrVIYxteoFN8zVuY3fM6IVhtwTupmuavPeU_vqxQB-x8ALFSYjPYZq9SRvD6Wofrt_NDcLTGmCIo9LQ1OO432D5qaTla428W8gwRGL5Cy4hJTtgeRoneptwL2MYwQGgJeQpvsov6FIKl8wGYh-AoeRXdUhnbPOoJ5Fdt6Zr6vfMbVhROIL9-Y834X_fleL7KzW4N0JiNiSrCjUFdKaznuLtCO8WW1H9c6PRtAkMoludUnE6xrt1QSNwjDkfaa7PgT1kj8ezFiDoZbdBSVAflaQ
+
+
+
+
+
+Object fields (state) cannot be changed or modified.
+
+It can be passed to any method without worrying about whether that method changes or modifies any of the object fields.
+
+The object’s hash code can easily be cached.
+
+These objects are a good choice for keys for Maps.
+
+These objects are good for a multi-threaded environment as the object's state won’t change.
+
+An immutable object’s state won’t change, so the same object can be used at multiple places and hence saving the memory.
+
+
+
+1.Use of String Constant Pool:
+
+The string pool is a group of string literals placed in the heap memory area. Many string variables with the same string literal or content can refer to the
+ same string object from the string pool. By using this concept of string pool, a lot of memory can be easily saved by Java Virtual Machine. The below diagram explains the concept of the string pool.
+
+2. Security :
+
+ Strings are generally used in Java applications to store sensitive data like userName, password, etc. If strings were mutable then there would have
+ been a chance that these strings like userName or password could be tempered/changed by some untrustworthy user.
+
+3. Thread-Safety :
+As the string objects are immutable, hence if they are accessed by multiple threads they won’t be changed and hence making it thread safer. Also, 
+the same string object can be used by multiple threads.
+
+4. Cacheable HashCode :
+Strings are the most widely used objects in any java application. They are used in HashMap, HashTable, HashSet, etc. . Also note that the overridden hashCode() method 
+of String class is quite frequently called for bucketing.As strings are immutable and hence, they won’t change, and hence when first-time hashCode() is called the 
+hashcode of the string object is cached and later on, for frequent hashCode() method calls the same value is returned.
+
+If we would have used the mutable objects with Collections like HashMap, HashSet, or HashTable, there could have been different hashcodes, one when object 
+contents are not modified and the other when object contents are modified. Hence mutable objects should not be used as keys in Maps, if they are used in Maps, 
+then we might lose the value associated with the keys in Map.
+
+5. Improved Performance :
+
+Generally, performance is directly linked with memory usages. As Strings are stored in a string pool and for multiple string variables having the same string 
+contents there is only one instance stored in the string pool, which is already explained in above point 1. So, the string pool saves a lot of heap memory of 
+Java Virtual Memory and hence performance of the application improves automatically.

@@ -1,0 +1,220 @@
+==================Core Java====================
+1.memory allocaion ,garbaze collection 
+2.JVM arichtechire class Loader
+3.diffination of class,object,inheritance,polymorphism,abstraction,encapsulation.
+4.uses of this,super,final ,transient ,volatile variable.
+5.diffrent type of access modifier public ,protected,defalt,private.
+6. What are the differences between JVM, JRE and JDK in Java?
+7.Tell us something about JIT compiler.
+8.Using relevant properties highlight the differences between interfaces and abstract classes.
+9.Java works as "pass by value" or "pass by reference" phenomenon?
+10.Although inheritance is a popular OOPs concept, it is less advantageous than composition. Explain.
+
+
+
+-----------------------------------------
+String
+============
+
+1. Apart from the security aspect, what are the reasons behind making strings immutable in Java?
+2. how to cteate imutable class.
+3.counting of frequency of charachter. for example:-abcdaabca
+4. How would you differentiate between a String, StringBuffer, and a StringBuilder?
+5.How is the creation of a String using new() different from that of a literal?
+6.Why is the character array preferred over string for storing confidential information?
+7.Can you tell the difference between equals() method and equality operator (==) in Java?
+
+-----------------------------------------------
+MultiThreading
+==================
+1.What are the different ways of threads usage?
+2Thread and Process.
+3lifecycle of Thread.
+4.Printing odd andeven number from two thread using wait() and notify() method.
+5.Executer framework thread pool.
+6.Printing the number odd and even using two diffrence Thread.
+6.diff wait and sleep.
+7.diffrenece between notify and notifyALL.
+8.Why is synchronization necessary? Explain with the help of a relevant example.
+
+
+-------------------------------------
+
+serilization
+=============
+1.What do you understand by marker interfaces in Java?
+2.what is serial versionid . can we make serializable class without serial versionid,
+
+
+
+--------------------------------------------------
+Exception Handling
+==================
+
+1.what is the diff between   NoClassDefFoundError and ClassNotFoundException 
+2.what is try   ,Catch and ,finaly, 
+3.try with resource
+4.diff between throw and Throws keyword.
+5.who called checked exception.
+6.A single try block and multiple catch blocks can co exist in a Java Program. Explain. 
+
+----------------------------------------------------
+collectoin framework
+=======================
+1.What is the importance of reflection in Java?
+2.internal working of hash map
+3.arraylist and linkedlsit diff and Implement Arraylist using array.
+4.hashmap and hashtable diff
+5.hashmap and linked]hashmap diff 
+6.list insertion Order.
+7.Comprable and Comprator sorting on the basis of id and sorting  on the name.
+8.what is hascode and equal method implemention and what contract between them.
+9.what is the methd availble in Objects methods.
+10.what is concuranat hashmap and hashtable and syncronized and week hashmap map
+11.What makes a HashSet different from a TreeSet? 
+
+
+
+----------------------------------------------------
+java8 feature
+================================
+
+1.what is lamda expresion.
+2.functinal Interface benefit of functinal Interface.
+3.Map ,Flat map and filter 
+4.List of some functinal interface
+5.improvemtn of hashmap.
+6.optinal calss
+10.codeing question of java8
+
+	Sorting in java
+	how to sum of 1 t 100 number by lamda expresion.
+	how to split the diffrent-Diffrent file from array List from lamda expression on the basis of their extension.
+	sorting on the basis list using comprator and comprable.
+	reverse the element array in java8.
+	distict value using java8
+===========Hibernae and JPA========================
+
+1.how to use composite key in hibernate.
+2.what is diffrence between save,saveandupdate and Persit.
+3.what is diffrence between load and get.
+5.first level cache(session) and second level cache(sessionfactory).
+6.what is cascade and  type of joining in entity class.
+7.cashing technic.
+8.how to prent class will save then how to store child class.
+
+
+============Spring Data ===============
+1.Spring data :Jdbctemplate
+2.Spring data jpa :it provide the wrapper on Hibernate.
+3.what is diffrence between jparepository and crudjparepository.
+4.how to insert in bulk data in jdbc,hibernate and spring data jpa.
+5.how to select 100000 record and apply pagination.
+
+
+==============springFramwork=================
+1.Diffrence between @Inject and @Autowire.
+2.what is IOC and DI.
+3.type of autowire setter injecttion construtor injection which one is better.
+4.what is the diffrence beanfactory and  contextpath.
+5.lifecycle of bean /scope of bean /what happen if proptotype scope bean define inside in singlton.
+6.what is use of @Qulifier Anotation.
+7.what is Strio type anotation can we exchange to each other means can we change @servce with @configuration.
+8.Exception handlig in spring
+
+
+============Spring Security===============
+
+1.OAuth2 Framework.
+2.what is Authorization server,Resource Server and JWT.
+3.which class is used to validate the userid and password.
+4.how to userid and password encrypted.
+5.how database userid and password is encrypted.
+6.how to autheticate every request of user.
+7.how to validate again barier token again if we sending the the same barier token. 
+
+============Springboot======================
+1.List of Anotation in springboot.
+2.how to override tomcat server
+3.what configuration we have kept in application.properties
+4.how to exclude bean from Auto configuration.
+5.what is difference @Component and @service and @bean. 
+6.what is dev tools
+7.what is acuator and how to all  endpoint is exposed.
+8.how to exclude some of bean from the class path.
+9.exception handling in spring boot @Exceptionhadler and @controlleradvice similar to try and catch block.
+
+==============RestFull API====================
+
+1.what is the Diffrece Post and Get. 
+2.what is Put , post and Patch.
+3.what happen if two method is call 
+4.advantage and disadvantage of RestFull Web Service.
+============MicroService=======================
+
+1.advantage and disadvantage of Microservice
+2.Design Pattern in MicroServices
+3.what is Service Discovery and service Registry and what is Ereka server and Ereka clinet.
+4.what is Load Blancer and how it implemented.
+5.what is cerkit  breaker.
+6.how to microservice is comunicated and what is openfein.
+6.how to Rabit MQ and Active MQ is work.
+7.what is 12 factor service.
+8.What happen if Ereka server is down.
+
+============Design Question=================
+
+1.how to design tini url.
+2.Solid Principle
+2.Singleton Design Pattern.
+
+
+
+===========Coding Question===========
+
+1.max sum of that arry=
+int arr[]=[2,-4,3,-2,9,-8];
+int sum;
+for(int i=0;i<arr.lenth;i++){
+
+	sum=arr[i]+arr[i+1];
+
+
+}
+
+
+
+2.sorting of array
+
+
+3.sort the element and remove the duplicate
+4.partition of array into three equals parts
+5.implemention of queue on the basis of two stack
+
+7.Given an array and how to find the element and their postion of number using binary search.
+8.we have array of length n it contains unique number from 1 to n+1;
+
+WAP to find the missing number
+
+
+9. nput: str = "abaaa"
+Output:  Below are 5 palindrome sub-strings
+
+a
+aa
+aaa
+aba
+b
+10. implemention of queue using two stack
+
+
+========Application Server==================
+
+1.Type of server and what is blocking and non-blocking server.
+2.tomcat is nonblocking server or not.  
+
+
+------------------------------------------------------------
+
+
+

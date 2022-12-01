@@ -1,0 +1,36 @@
+Starters
+1.spring-boot-starter-web-services - SOAP WebServices
+
+2.spring-boot-starter-web - Web & RESTful applications
+
+3.spring-boot-starter-test - Unit, Integration Testing
+
+4.spring-boot-starter-jdbc - Traditional JDBC
+
+5.spring-boot-starter-hateoas - HATEOAS features
+
+6.spring-boot-starter-security - Authentication and Authorization using Spring Security
+
+7.spring-boot-starter-data-jpa - Spring Data JPA with Hibernate
+
+8.spring-boot-starter-cache - Enabling Spring Framework’s caching support
+
+9.spring-boot-starter-data-rest - Expose Simple REST Services using Spring Data REST
+
+10.spring-boot-starter-actuator - To use advanced features like monitoring & tracing to your application out of the box
+
+11.spring-boot-starter-undertow, spring-boot-starterjetty, spring-boot-starter-tomcat - To pick your specific choice of Embedded Servlet Container
+
+12.spring-boot-starter-logging - For Logging using logback
+
+13.spring-boot-starter-log4j2 - Logging using Log4j2
+
+
+
+logging.file=
+logging.level.*=
+spring.autoconfigure.exclude=
+spring.profiles.active=
+server.error.path=/error
+server.port=8080
+spring.http.converters.preferred-json-mapper=jackson
