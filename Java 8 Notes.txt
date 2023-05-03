@@ -1,7 +1,7 @@
 Main Feature of Java 8
 =========================
 		1.forEach () Method in iterable Interface.
-		2.Default Methods and Static Methods Interface which which improve the implementation of interface.
+		2.Default Methods and Static Methods in Interface which which improve the implementation of interface.
 		3.Functional Interfaces, Lambda Expressions and Method Reference.
 		4.Optinal Class
 		4.Java Stream API for Bulk Data Operations on Collections.
