@@ -91,7 +91,7 @@ public class EmployeeController {
 		}
 	}
 
-	@DeleteMapping("/employees/id")
+	@DeleteMapping(path = "/employees/{id}")
 	public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable("id") Long id) {
 
 		// Employee emp= employeerepository.getById(id);
