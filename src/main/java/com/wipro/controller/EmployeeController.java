@@ -21,86 +21,78 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.wipro.entity.Employee;
 import com.wipro.repository.EmployeeRepository;
+import com.wipro.service.EmployeeService;
 
-
-
-@RestController   
+@RestController
 public class EmployeeController {
 
 	@Autowired
-	EmployeeRepository employeerepository;
 
-	
-	// @PostMapping("/employees")
-	
-	@RequestMapping(path = "/employees", method = RequestMethod.POST)
-	
+	EmployeeService employeeService;
+
+	@PostMapping("/employees")
+
+	// @RequestMapping(path = "/employees", method = RequestMethod.POST)
+
 	public ResponseEntity<Employee> createEmployee(@RequestBody Employee emp) {
 
-		Employee emp1 = employeerepository.save(emp);
+		// Employee emp1 = employeerepository.save(emp);
 
-		return new ResponseEntity<Employee>(emp1,HttpStatus.CREATED);
+		Employee emp1 = employeeService.saveEmployee(emp);
+
+		return new ResponseEntity<Employee>(emp1, HttpStatus.CREATED);
 	}
 
+	@GetMapping(path = "/employees")
+	// @RequestMapping(path = "/employees", method = RequestMethod.GET)
+	public ResponseEntity<List<Employee>> getEmployee() {
 
-	 // @GetMapping(path = "/employees") 
-	  @RequestMapping(path = "/employees", method = RequestMethod.GET)
-	  public ResponseEntity<List<Employee>> getEmployee() {
-	  
-		  List<Employee> employeelist=new ArrayList<Employee>(); 
-		  
-		 employeerepository.findAll().forEach(employeelist::add);;
-		  
-	  return  new ResponseEntity<List<Employee>>(employeelist,HttpStatus.OK);
-			  
-	  }
-	
+		List<Employee> employeelist = employeeService.GetAllEmployee();
+
+		/*
+		 * List<Employee> employeelist = new ArrayList<Employee>();
+		 * 
+		 * employeerepository.findAll().forEach(employeelist::add); ;
+		 */
+		return new ResponseEntity<List<Employee>>(employeelist, HttpStatus.OK);
+
+	}
+
 	@GetMapping(path = "/employees/{id}")
 	public ResponseEntity<Employee> getEmployeeId(@PathVariable(value = "id") Long id) {
 
-		Optional<Employee> employee = employeerepository.findById(id);
+		Optional<Employee> employee = employeeService.getEmployeebyID(id);
 
-		if (employee.isPresent()) {
-			return new ResponseEntity<>(employee.get(), HttpStatus.OK);
-		}
-
-		else {
-			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-		}
+		/*
+		 * Optional<Employee> employee = employeerepository.findById(id);
+		 * 
+		 * if (employee.isPresent()) { return new ResponseEntity<>(employee.get(),
+		 * HttpStatus.OK); }
+		 * 
+		 * else { return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
+		 */
+		return new ResponseEntity<>(employee.get(), HttpStatus.OK);
 	}
 
 	@PutMapping(path = "/employees/{id}")
 	public ResponseEntity<Employee> updateEmployee(@PathVariable(value = "id") long id,
 			@RequestBody Employee employee) {
 
-		Optional<Employee> emp1 = employeerepository.findById(id);
+		Employee emp = employeeService.updteEmployee(employee, id);
 
-		if (emp1.isPresent()) {
-
-			emp1.get().setName(employee.getName());
-			emp1.get().setEmail(employee.getEmail());
-
-			employeerepository.save(emp1.get());
-
-			return new ResponseEntity<>(emp1.get(), HttpStatus.OK);
-		}
-
-		else {
-			return new ResponseEntity<Employee>(HttpStatus.NOT_FOUND);
-
-		}
+		return new ResponseEntity<>(emp, HttpStatus.OK);
 	}
 
 	@DeleteMapping(path = "/employees/{id}")
 	public ResponseEntity<HttpStatus> deleteEmployee(@PathVariable("id") Long id) {
 
 		// Employee emp= employeerepository.getById(id);
+		// employeerepository.deleteById(id);
 
-		employeerepository.deleteById(id);
-		return new ResponseEntity(HttpStatus.NO_CONTENT);
+		employeeService.deleteEmployee(id);
+
+		return new ResponseEntity<HttpStatus>(HttpStatus.NO_CONTENT);
 
 	}
 
-	  
-	 
 }

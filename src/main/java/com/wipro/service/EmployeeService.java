@@ -1,13 +1,15 @@
 package com.wipro.service;
 
-import org.springframework.stereotype.Service;
+import java.util.List;
+import java.util.Optional;
 
-@Service
-public class EmployeeService {
+import com.wipro.entity.Employee;
 
-	public void getAllEmployee() {
-		
-		
-	}
-	
+public interface EmployeeService {
+
+	Employee saveEmployee(Employee emp);
+	List<Employee> GetAllEmployee();
+	Optional<Employee>  getEmployeebyID(long id);
+	Employee updteEmployee(Employee emp,long id);
+	void deleteEmployee(long id);
 }
