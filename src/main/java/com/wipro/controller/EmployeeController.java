@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.wipro.Exception.ResourceNotFound;
 import com.wipro.entity.Employee;
 import com.wipro.repository.EmployeeRepository;
 import com.wipro.service.EmployeeService;
@@ -59,7 +60,7 @@ public class EmployeeController {
 	}
 
 	@GetMapping(path = "/employees/{id}")
-	public ResponseEntity<Employee> getEmployeeId(@PathVariable(value = "id") Long id) {
+	public ResponseEntity<Employee> getEmployeeId(@PathVariable(value = "id") Long id) throws ResourceNotFound {
 
 		Optional<Employee> employee = employeeService.getEmployeebyID(id);
 
@@ -71,7 +72,23 @@ public class EmployeeController {
 		 * 
 		 * else { return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
 		 */
-		return new ResponseEntity<>(employee.get(), HttpStatus.OK);
+		return new ResponseEntity<Employee>(employee.get(), HttpStatus.OK);
+	}
+
+	@GetMapping(path = "/employeesname/{name}")
+	public ResponseEntity<Employee> getEmployeeName(@PathVariable(value = "name") String name) {
+
+		Optional<Employee> employee = employeeService.getEmployeebyName(name);
+
+		/*
+		 * Optional<Employee> employee = employeerepository.findById(id);
+		 * 
+		 * if (employee.isPresent()) { return new ResponseEntity<>(employee.get(),
+		 * HttpStatus.OK); }
+		 * 
+		 * else { return new ResponseEntity<>(HttpStatus.NOT_FOUND); }
+		 */
+		return new ResponseEntity<Employee>(employee.get(), HttpStatus.OK);
 	}
 
 	@PutMapping(path = "/employees/{id}")
@@ -80,7 +97,7 @@ public class EmployeeController {
 
 		Employee emp = employeeService.updteEmployee(employee, id);
 
-		return new ResponseEntity<>(emp, HttpStatus.OK);
+		return new ResponseEntity<Employee>(emp, HttpStatus.OK);
 	}
 
 	@DeleteMapping(path = "/employees/{id}")

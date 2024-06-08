@@ -1,18 +1,20 @@
 package com.wipro.service;
 
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.wipro.Exception.ResourceNotFound;
 import com.wipro.entity.Employee;
 import com.wipro.repository.EmployeeRepository;
 
 @Service
 public class EmployeeServiceIml implements EmployeeService {
 
-	@Autowired
+	@Autowired(required = true)
 	EmployeeRepository employeerepository;
 
 	@Override
@@ -28,9 +30,19 @@ public class EmployeeServiceIml implements EmployeeService {
 	}
 
 	@Override
-	public Optional<Employee> getEmployeebyID(long id) {
+	public Optional<Employee> getEmployeebyID(long id) throws ResourceNotFound {
 
-		return employeerepository.findById(id);
+		
+		Optional<Employee> emp=	employeerepository.findById(id);
+		
+		if(emp.isEmpty()) {
+			
+			throw new ResourceNotFound("data is not avalible for id"+id); 
+		}
+		
+		
+		
+		return emp; 
 	}
 
 	@Override
@@ -49,10 +61,25 @@ public class EmployeeServiceIml implements EmployeeService {
 
 	@Override
 	public void deleteEmployee(long id) {
-		
 		employeerepository.deleteById(id);
 		
 	}
+
+	@Override
+	public Optional<Employee> getEmployeebyName(String name) {
+		
+		String reg=".*\\d.*";
+		
+		if(name.matches(reg)) {
+			
+			throw new InputMismatchException("please remove the digit"+name);
+			
+		}
+		
+		
+		return employeerepository.findByName(name);
+	}
+
 
 	
 }
