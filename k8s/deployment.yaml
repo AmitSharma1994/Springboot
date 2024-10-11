@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-boot-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: spring-boot
+  template:
+    metadata:
+      labels:
+        app: spring-boot
+    spec:
+      containers:
+      - name: spring-boot-container
+        image: my-spring-boot-app:latest  # Use the image we built locally
+        imagePullPolicy: Never             # Instruct Kubernetes to use the local image
+        ports:
+        - containerPort: 8080
